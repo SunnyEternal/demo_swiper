@@ -3,7 +3,7 @@
   <div class="home">
     <div class="swiperWrap" v-if="recordsList.length > 0">
       <swiper :options="swiperOption" class="gallery-top" ref="swiperTop" @slideChangeTransitionEnd="setCurrIndex">
-        <swiper-slide v-for="(item, index) in recordsList" :key="index">
+        <swiper-slide class="swiper-wrap" v-for="(item, index) in recordsList" :key="index">
           <div class="swiper-zoom-container">
             <img :src="item.backImageUrl" class="itemImg" :id="'backBg'+index"/>
             <img :src="item.coverImageUrl" class="itemImg" :id="'coverBg'+index"/>
@@ -75,44 +75,7 @@ export default {
       //     "backImageUrl": "http://img.creasy.365zhang.com/base_swiper_ani_01.jpg",
       //   }
       // ]
-      recordsList: [
-        {
-          "id": 1,
-          "iconImageUrl": "http://img.creasy.365zhang.com/base_swiper_jerry_i01.jpg",
-          "coverImageUrl": "http://img.creasy.365zhang.com/c1.png",
-          "backImageUrl": "http://img.creasy.365zhang.com/base_swiper_jerry_01.jpg",
-        },
-        {
-          "id": 2,
-          "iconImageUrl": "http://img.creasy.365zhang.com/base_swiper_jerry_i02.jpg",
-          "coverImageUrl": "http://img.creasy.365zhang.com/c1.png",
-          "backImageUrl": "http://img.creasy.365zhang.com/base_swiper_jerry_02.jpg",
-        },
-        {
-          "id": 3,
-          "iconImageUrl": "http://img.creasy.365zhang.com/base_swiper_jerry_i03.jpg",
-          "coverImageUrl": "http://img.creasy.365zhang.com/c1.png",
-          "backImageUrl": "http://img.creasy.365zhang.com/base_swiper_jerry_03.jpg",
-        },
-        {
-          "id": 4,
-          "iconImageUrl": "http://img.creasy.365zhang.com/base_swiper_jerry_i04.jpg",
-          "coverImageUrl": "http://img.creasy.365zhang.com/c1.png",
-          "backImageUrl": "http://img.creasy.365zhang.com/base_swiper_jerry_04.jpg",
-        },
-        {
-          "id": 5,
-          "iconImageUrl": "http://img.creasy.365zhang.com/base_swiper_jerry_i05.jpg",
-          "coverImageUrl": "http://img.creasy.365zhang.com/c1.png",
-          "backImageUrl": "http://img.creasy.365zhang.com/base_swiper_jerry_05.jpg",
-        },
-        {
-          "id": 6,
-          "iconImageUrl": "http://img.creasy.365zhang.com/base_swiper_jerry_i13.jpg",
-          "coverImageUrl": "http://img.creasy.365zhang.com/c1.png",
-          "backImageUrl": "http://img.creasy.365zhang.com/base_swiper_jerry_13.jpg",
-        }
-      ]
+      recordsList: []
     }
   },
   beforeMount() {
@@ -134,6 +97,12 @@ export default {
       clearInterval(timer1);
       clearTimeout(timer2);
     }, 3000);
+  },
+  mounted() {
+    let timer = setTimeout(() => {
+      this.recordsList = [{"id":1,"iconImageUrl":"http://img.creasy.365zhang.com/base_swiper_jerry_i01.jpg","coverImageUrl":"http://img.creasy.365zhang.com/c1.png","backImageUrl":"http://img.creasy.365zhang.com/base_swiper_jerry_01.jpg",},{"id":2,"iconImageUrl":"http://img.creasy.365zhang.com/base_swiper_jerry_i02.jpg","coverImageUrl":"http://img.creasy.365zhang.com/c1.png","backImageUrl":"http://img.creasy.365zhang.com/base_swiper_jerry_02.jpg",},{"id":3,"iconImageUrl":"http://img.creasy.365zhang.com/base_swiper_jerry_i03.jpg","coverImageUrl":"http://img.creasy.365zhang.com/c1.png","backImageUrl":"http://img.creasy.365zhang.com/base_swiper_jerry_03.jpg",},{"id":4,"iconImageUrl":"http://img.creasy.365zhang.com/base_swiper_jerry_i04.jpg","coverImageUrl":"http://img.creasy.365zhang.com/c1.png","backImageUrl":"http://img.creasy.365zhang.com/base_swiper_jerry_04.jpg",},{"id":5,"iconImageUrl":"http://img.creasy.365zhang.com/base_swiper_jerry_i05.jpg","coverImageUrl":"http://img.creasy.365zhang.com/c1.png","backImageUrl":"http://img.creasy.365zhang.com/base_swiper_jerry_05.jpg",},{"id":6,"iconImageUrl":"http://img.creasy.365zhang.com/base_swiper_jerry_i13.jpg","coverImageUrl":"http://img.creasy.365zhang.com/c1.png","backImageUrl":"http://img.creasy.365zhang.com/base_swiper_jerry_13.jpg",}]
+      clearTimeout(timer)
+    }, 500)
   },
   methods: {
     // 当前模板索引
@@ -199,12 +168,15 @@ export default {
   width: 630px;
   height: 840px;
 }
-.swiper-slide{
-  width: 630px!important;
-}
-.swiper-slide-active{
-  width: 630px!important;
-}
+// .swiper-wrap{
+//   width: 630px!important;
+// }
+// .swiper-slide{
+//   width: 630px!important;
+// }
+// .swiper-slide-active{
+//   width: 630px!important;
+// }
 .swiper-zoom-container img {
   border-radius: 30px;
 }

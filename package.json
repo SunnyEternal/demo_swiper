@@ -11,6 +11,7 @@
     "core-js": "^3.6.4",
     "image-webpack-loader": "^6.0.0",
     "postcss-px2rem": "^0.3.0",
+    "style-vw-loader": "^1.0.2",
     "vue": "^2.6.11",
     "vue-awesome-swiper": "^3.1.3",
     "vue-router": "^3.1.5",
